@@ -1,5 +1,26 @@
+<script>
+  function validate() {
+    // body...
+    var purchase_date = document.getElementByName("purchase_date").value
+    var purchase_iso_date = new Date(purchase_date).toISOString()
+    document.getElementByName("purchase_date").value = purchase_iso_date
+
+    var last_service = document.getElementByName("last_service").value
+    var last_service_iso_date = new Date(last_service).toISOString()
+    document.getElementByName("last_service").value = last_service_iso_date
+
+  }
+
+  function load() {
+    // body...
+    var purchase_iso_date = document.getElementByName("purchase_date").value
+    var purchase_date = new Date(purchase_iso_date)
+    document.getElementByName("purchase_date").value = purchase_iso_date.getDate()
+  }
+</script>
+
 <div class="container">
-  <h1>Edit person</h1>
+  <h1>Edit Vehicle</h1>
   <div class="row">
     <div class="col-md-6">
       <form (ngSubmit)="updatePerson(person._id)" #personForm="ngForm">
@@ -13,7 +34,7 @@
         </div>
         <div class="form-group">
           <label for="name">Purchase Date</label>
-          <input type="text" class="form-control" [(ngModel)]="person.purchase_date" name="purchase_date" required>
+          <input type="date" class="form-control" [(ngModel)]="person.purchase_date" name="purchase_date">
         </div>
         <div class="form-group">
           <label for="name">Description</label>
@@ -21,14 +42,15 @@
         </div>
         <div class="form-group">
           <label for="name">Last Service</label>
-          <input type="text" class="form-control" [(ngModel)]="person.last_service" name="last_service" required>
+          <input type="date" class="form-control" [(ngModel)]="person.last_service " name="last_service" required>
         </div>
         <div class="form-group">
           <label for="name">Car Owner email</label>
           <input type="text" class="form-control" [(ngModel)]="person.owner_email" name="owner_email" required>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-success" [disabled]="!personForm.form.valid">Save</button>
+          <button type="submit" onClick="validate()" class="btn btn-success" [disabled]="!personForm.form.valid">Save</button>&nbsp;
+          <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
         </div>
       </form>
     </div>

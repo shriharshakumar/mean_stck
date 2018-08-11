@@ -28,4 +28,8 @@ export class PersonCreateComponent implements OnInit {
       );
   }
 
+  cancel() {
+    this.router.navigate(['/persons']);
+  }
+
 }

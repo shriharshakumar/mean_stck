@@ -36,4 +36,8 @@ export class PersonEditComponent implements OnInit {
       );
   }
 
+  cancel() {
+    this.router.navigate(['/persons']);
+  }
+
 }
