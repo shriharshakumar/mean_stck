@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class PersonEditComponent implements OnInit {
 
-  person = {};
+  person: {};
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 

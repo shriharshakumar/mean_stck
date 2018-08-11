@@ -10,13 +10,6 @@
     document.getElementByName("last_service").value = last_service_iso_date
 
   }
-
-  function load() {
-    // body...
-    var purchase_iso_date = document.getElementByName("purchase_date").value
-    var purchase_date = new Date(purchase_iso_date)
-    document.getElementByName("purchase_date").value = purchase_iso_date.getDate()
-  }
 </script>
 
 <div class="container">
@@ -42,7 +35,7 @@
         </div>
         <div class="form-group">
           <label for="name">Last Service</label>
-          <input type="date" class="form-control" [(ngModel)]="person.last_service " name="last_service" required>
+          <input type="date" class="form-control" [(ngModel)]="person.last_service" name="last_service" required>
         </div>
         <div class="form-group">
           <label for="name">Car Owner email</label>
