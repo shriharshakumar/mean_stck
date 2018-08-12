@@ -27,7 +27,7 @@ export class PersonDetailComponent implements OnInit {
     });
   }
 
-  deletePerson(id) {
+  deleteperson(id) {
   this.http.delete('/person/'+id)
     .subscribe(res => {
         this.router.navigate(['/persons']);

@@ -8,7 +8,7 @@ var person = require('./routes/person');
 var app = express();
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/mean-angular5', { promiseLibrary: require('bluebird') })
+mongoose.connect('mongodb://ec2-54-218-79-232.us-west-2.compute.amazonaws.com/mean-angular5', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
@@ -48,7 +48,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', { err_msg: err.message });
+  console.log(err);
+  res.render('error', { message: err.message , error: {} });
 });
 
 module.exports = app;

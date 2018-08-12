@@ -16,15 +16,15 @@ router.get('/:id', function(req, res, next) {
   Person.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     var json_response = {
-      "_id" : post._id,
-      'car_no' : post.car_no,
-      'owner_name' : post.owner_name,
+      "_id" : (post._id).toString(),
+      'car_no': (post.car_no).toString(),
+      'owner_name': (post.owner_name).toString(),
       'purchase_date' : (post.purchase_date).toISOString().substr(0,10) ,
-      'description' : post.description,
+      'description': (post.description).toString(),
       'last_service' : (post.last_service).toISOString().substr(0,10),
-      'owner_email' : post.owner_email,
-      'updated_date' : (post.updated_date).toISOString().substr(0,10),
-      '__v' : post.__v
+      'owner_email': (post.owner_email).toString(),
+      'updated_date' : post.updated_date,
+      '__v': post.__v
     } 
     res.json(json_response);
   });

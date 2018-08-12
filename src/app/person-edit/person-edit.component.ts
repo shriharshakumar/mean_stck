@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class PersonEditComponent implements OnInit {
 
-  person: {};
+  person = {};
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
@@ -25,8 +25,8 @@ export class PersonEditComponent implements OnInit {
     });
   }
 
-  updateperson(id, data) {
-    this.http.put('/person/'+id, data)
+  updateperson(id) {
+    this.http.put('/person/'+id, this.person)
       .subscribe(res => {
           let id = res['_id'];
           this.router.navigate(['/person-details', id]);
