@@ -1,7 +1,10 @@
 <html>
 	<head> ERROR </head>
 	<body>
-		An error occured 
-		{{ message }}
+		<div class="alert alert-danger" role="alert">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			<span class="sr-only">Error:</span>
+			{%= message %}
+		</div>
 	</body>
 </html>

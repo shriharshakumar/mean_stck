@@ -1,5 +1,9 @@
 <div class="container">
-  <h1>{{ person.car_no }}</h1>
+  <h1>
+  <a [routerLink]="['/persons']">
+    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+  </a>
+  {{ person.car_no }}</h1>
   <br/>
   <dl class="list">
     <dt>Car Reg.no</dt>
