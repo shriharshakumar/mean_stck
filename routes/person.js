@@ -48,7 +48,7 @@ router.put('/:id', function(req, res, next) {
 
 /* DELETE PERSON */
 router.delete('/:id', function(req, res, next) {
-  Book.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Person.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
