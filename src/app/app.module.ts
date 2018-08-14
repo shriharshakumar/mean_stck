@@ -9,8 +9,20 @@ import { PersonComponent } from './person/person.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonCreateComponent } from './person-create/person-create.component';
 import { PersonEditComponent } from './person-edit/person-edit.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const appRoutes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login' }
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    data: { title: 'Sign Up' }
+  },
   {
     path: 'persons',
     component: PersonComponent,
@@ -42,7 +54,9 @@ const appRoutes: Routes = [
     PersonComponent,
     PersonDetailComponent,
     PersonCreateComponent,
-    PersonEditComponent
+    PersonEditComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

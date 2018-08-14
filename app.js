@@ -4,12 +4,26 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
+var morgan = require('morgan');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var config = require('./config/database');
+
+mongoose.Promise = require('bluebird');
+mongoose.connect(config.database, { promiseLibrary: require('bluebird') })
+  .then(() => console.log('connection successful to user database'))
+  .catch((err) => console.error(err));
+
+var api = require('./routes/api');
+app.use(passport.initialize());
+app.use('/api', api);
+
 var person = require('./routes/person');
 var app = express();
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://ec2-54-218-79-232.us-west-2.compute.amazonaws.com/mean-angular5', { promiseLibrary: require('bluebird') })
-  .then(() =>  console.log('connection succesful'))
+  .then(() =>  console.log('connection successful to vehicles database'))
   .catch((err) => console.error(err));
 
 
@@ -21,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/persons', express.static(path.join(__dirname, 'dist')));
 //app.use('/persons', express.static(path.join(__dirname, 'src/app/person/person.compo')));
 app.use('/person', person);
+
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
